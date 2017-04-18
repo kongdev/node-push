@@ -1,0 +1,21 @@
+{
+  "name": "node-push",
+  "version": "1.0.0",
+  "main": "app.js",
+  "license": "MIT",
+   "scripts": {
+      "run": "babel-node app.js",
+      "build": "babel . -d .dist --ignore=\"node_modules\""
+  },
+   "dependencies": {
+    "express": "^4.15.2",
+    "mongodb": "^2.2.25"
+  },
+  "devDependencies": {
+        "babel-cli": "*",
+        "babel-core": "*",
+        "babel-preset-es2015-node5": "*",
+        "babel-preset-stage-3": "*",
+        "babel-register": "*"
+  }
+}
