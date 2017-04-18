@@ -3,19 +3,22 @@
   "version": "1.0.0",
   "main": "app.js",
   "license": "MIT",
-   "scripts": {
-      "run": "babel-node app.js",
-      "build": "babel . -d .dist --ignore=\"node_modules\""
+  "scripts": {
+    "push-dev": "nodemon --exec babel-node app.js",
+    "build": "babel . -d .dist --ignore=\"node_modules\""
   },
-   "dependencies": {
+  "dependencies": {
+    "body-parser": "^1.17.1",
     "express": "^4.15.2",
+    "ioredis": "^2.5.0",
+    "kue": "^0.11.5",
     "mongodb": "^2.2.25"
   },
   "devDependencies": {
-        "babel-cli": "*",
-        "babel-core": "*",
-        "babel-preset-es2015-node5": "*",
-        "babel-preset-stage-3": "*",
-        "babel-register": "*"
+    "babel-cli": "*",
+    "babel-core": "*",
+    "babel-preset-es2015-node5": "*",
+    "babel-preset-stage-3": "*",
+    "babel-register": "*"
   }
 }
