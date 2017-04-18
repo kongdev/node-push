@@ -20,7 +20,7 @@ kue.app.listen(8888);
 const queue = kue.createQueue( {
   prefix:'q', 
   redis: {
-      createClientFactory:function () {
+      createClientFactory: ()=> {
         return new Redis.Cluster(ConfRedis); 
       }
     }
@@ -83,18 +83,18 @@ const server = app.listen(7755, () =>  {
 
 })
 
-queue.process('push-queue', 10, function(job, done) {
+queue.process('push-queue', 10, (job, done)=> {
     console.log(job.data)
     done();
 })
 
-var interval = setInterval(function(){ 
-  kue.Job.rangeByState( 'complete', 0, 10000, 'asc', function( err, jobs ) {
-    jobs.forEach( function( job ) {
-      job.remove( function(){
+var interval = setInterval(()=>{ 
+  kue.Job.rangeByState( 'complete', 0, 10000, 'asc', ( err, jobs )=> {
+    jobs.forEach( ( job )=> {
+      job.remove( ()=>{
         //console.log( 'removed ', job.id );
       });
     });
   });
-}, 30000);
+}, 15000);
 
